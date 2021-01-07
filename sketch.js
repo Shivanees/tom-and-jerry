@@ -14,23 +14,26 @@
         //create tom and jerry sprites here
         tom.createSprite(20,12,5,20);
         tom.addImage("tomImage");
+        tom.scale=0.3;
 
         jerry.createsprite(40,10,30,6);
         jerry.addImage("jerryImage");
+        jerry.scale=0.2;
     }
 
     function draw() {
 
-        background(255);
+        background("garden");
         //Write condition here to evalute if tom and jerry collide
 
         text(mouseX+','+mouseY,10,45);
 
-        if(tom.x - jerry.x + width/2 ){
+        if(tom.x - jerry.x<(tom.width - jerry.width)/2){
             tom.addAnimation("tomFour.png",tomThree.png);
             tom.changeAnimation("tomFour.png")
 
         }
+        keyPressed();
         drawSprites();
     }
 
@@ -43,6 +46,4 @@
         tom.addAnimation("tomRunning,tomTwo.png");
         tom.changeAnimation("tomRunning");
     }
-
-
     }
